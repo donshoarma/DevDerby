@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 MAAR IK WIL DIT COMMITTEN
+=======
+Dit is een test 
+>>>>>>> 7fca0d16629959d04db04c85ca836aaf0a65b0d4
