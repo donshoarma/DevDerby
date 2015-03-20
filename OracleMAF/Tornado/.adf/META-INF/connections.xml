@@ -1,0 +1,29 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="Whitehorses Clockwise" className="oracle.adf.model.connection.adfmf.LoginConnection"
+             adfCredentialStoreKey="Whitehorses Clockwise" partial="false" manageInOracleEnterpriseManager="true"
+             deployable="true" xmlns="">
+    <Factory className="oracle.adf.model.connection.adfmf.LoginConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="adfmfLogin">
+        <Contents>
+          <login url="https://secure.clockwise.info/clockwise/whitehorses_dev/rapportages/querywizzard.php?versturen=versturen&amp;f%5Bstatus%5D=L&amp;f%5Borganisatieid%5D=0&amp;f%5Btijdseenheid%5D=uur&amp;cwtblexport=1&amp;cwtblexport_type=json&amp;cwtblexport_name=table.json"/>
+          <logout url="https://secure.clockwise.info/clockwise/whitehorses_dev/rapportages/querywizzard.php?versturen=versturen&amp;f%5Bstatus%5D=L&amp;f%5Borganisatieid%5D=0&amp;f%5Btijdseenheid%5D=uur&amp;cwtblexport=1&amp;cwtblexport_type=json&amp;cwtblexport_name=table.json"/>
+          <authenticationMode value="remote"/>
+          <idleTimeout value="300"/>
+          <sessionTimeout value="28800"/>
+          <maxFailuresBeforeCredentialCleared value="3"/>
+          <rememberCredentials>
+            <enableRememberUserName value="true"/>
+            <rememberUserNameDefault value="true"/>
+            <enableRememberPassword value="false"/>
+            <enableStayLoggedIn value="false"/>
+          </rememberCredentials>
+          <injectCookiesToRestHttpHeader value="true"/>
+          <includeBasicAuthHeader value="true"/>
+          <accessControl/>
+          <userObjectFilter/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>

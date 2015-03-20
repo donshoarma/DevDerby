@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Copyright (c) 2011, 2014, Oracle and/or its affiliates. All rights reserved. -->
+<widget id="io.cordova.helloCordova" version="2.0.0" xmlns="http://www.w3.org/ns/widgets">
+    <access origin="http://127.0.0.1*" />
+    <access origin="*://*.googleapis.com/*" />
+    <access origin="*://*.gstatic.com/*" />
+    <access origin="*://elocation.oracle.com/*" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="useBrowserHistory" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="loadInWebView" value="true" />
+    <feature name="ADFMobileDeviceProperties">
+        <param name="android-package" value="oracle.adfmf.phonegap.ADFMobileDeviceProperties" />
+    </feature>
+    <feature name="AdfmfSlidingWindowPlugIn">
+        <param name="android-package" value="oracle.adfmf.phonegap.AdfmfSlidingWindowPlugIn" />
+    </feature>
+    <feature name="ADFMobileShell">
+        <param name="android-package" value="oracle.adfmf.phonegap.ADFMobileShell" />
+    </feature>
+    <feature name="ADFMobileFeatures">
+        <param name="android-package" value="oracle.adfmf.phonegap.ADFMobileFeatures" />
+    </feature>
+</widget>

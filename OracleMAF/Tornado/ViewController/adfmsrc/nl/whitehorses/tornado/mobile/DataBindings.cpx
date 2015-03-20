@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.13.52" id="DataBindings"
+             SeparateXMLFiles="false" Package="nl.whitehorses.tornado.mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/nl.whitehorses.tornado.Settings/SettingsView.amx"
+          usageId="nl_whitehorses_tornado_mobile_SettingsViewPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="nl_whitehorses_tornado_mobile_SettingsViewPageDef"
+          path="nl.whitehorses.tornado.Settings.SettingsViewPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="SettingsDC" path="nl.whitehorses.tornado.application.SettingsDC"/>
+  </dataControlUsages>
+</Application>

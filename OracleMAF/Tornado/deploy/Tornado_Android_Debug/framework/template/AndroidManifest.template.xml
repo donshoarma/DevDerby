@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!-- Copyright (c) 2011, 2014, Oracle and/or its affiliates. All rights reserved. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="$$app.package$$">
+  <uses-sdk/>
+
+  <application android:icon="$$app.icon$$" android:label="$$app.name$$" android:name="oracle.adfmf.Application" android:supportsRtl="true">
+    <activity android:configChanges="$$app.configChanges$$" android:hardwareAccelerated="true" android:label="$$app.label$$" android:launchMode="singleTask" android:name="oracle.adfmf.Container" android:theme="@style/Theme.MAF" android:windowSoftInputMode="adjustResize">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+      $$app.scheme$$
+    </activity>
+    <activity android:name="oracle.adfmf.AMXActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+    <activity android:name="oracle.adfmf.RemoteURLActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+    <activity android:name="oracle.adfmf.LocalHTMLActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+    <activity android:name="oracle.adfmf.phonegap.AdfSpringboardPhoneGapActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+    <activity android:name="oracle.adfmf.SettingsActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+    <activity android:name="oracle.adfmf.navbar.MoreTabActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+    <activity android:name="oracle.adfmf.BlankActivity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>   
+    <meta-data android:name="secureWindowContents" android:value="false"/> 
+  </application>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+</manifest>

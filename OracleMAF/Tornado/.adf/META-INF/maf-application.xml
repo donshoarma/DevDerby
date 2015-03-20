@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="Tornado" id="nl.whitehorses.Tornado" appControllerFolder="ApplicationController"
+                   listener-class="nl.whitehorses.tornado.application.LifeCycleListenerImpl">
+  <adfmf:featureReference refId="nl.whitehorses.tornado.Overview" id="fr2" showOnSpringboard="false"
+                          showOnNavigationBar="false" loginConnRefId="Whitehorses Clockwise"/>
+  <adfmf:preferences/>
+  <adfmf:navigation>
+    <adfmf:navigationBar enabled="false"/>
+  </adfmf:navigation>
+  <adfmf:login defaultConnRefId="Whitehorses Clockwise">
+    <adfmf:localHTML url="../../ViewController/public_html/login.html"/>
+  </adfmf:login>
+</adfmf:application>

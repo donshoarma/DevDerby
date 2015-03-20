@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">OverviewView</property>
+      <property
+         name="page">/nl.whitehorses.tornado.Overview/OverviewView.amx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>OverviewView&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">131.94824</property>
+      <property
+         name="x">225.0</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="taskFlowId">SettingsTaskFlow</property>
+      <property
+         name="activityId">SettingsTaskFlow</property>
+      <property
+         name="documentReference">/nl.whitehorses.tornado.Settings/SettingsTaskFlow.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SettingsTaskFlow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">130.44824</property>
+      <property
+         name="x">444.3496</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">toSettings</property>
+      <property
+         name="sdm:polyPoints">R50,266.0,131.59766,403.3496,130.09766,L50</property>
+   </ControlFlowCase>
+</SDM>
