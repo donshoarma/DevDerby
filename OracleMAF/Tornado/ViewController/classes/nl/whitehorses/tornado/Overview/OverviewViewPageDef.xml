@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.13.52" id="OverviewViewPageDef"
+                Package="nl.whitehorses.tornado.Overview">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+    </variableIterator>
+    <iterator Binds="root" RangeSize="25" DataControl="ClockWiseDC" id="ClockWiseDCIterator"/>
+    <accessorIterator MasterBinding="ClockWiseDCIterator" Binds="getMedewerker_parameters" RangeSize="25"
+                      DataControl="ClockWiseDC" BeanClass="ClockWiseDC.Types.getMedewerker"
+                      id="getMedewerker_parametersIterator"/>
+    <accessorIterator MasterBinding="getMedewerker_parametersIterator" Binds="payload" RangeSize="25"
+                      DataControl="ClockWiseDC" BeanClass="ClockWiseDC.Types.getMedewerker.payload"
+                      id="payloadIterator"/>
+    <methodIterator Binds="getMedewerker.result" DataControl="ClockWiseDC" RangeSize="25"
+                    BeanClass="nl.whitehorses.tornado.application.ClockWiseDC.getMedewerker.medewerkerResponse"
+                    id="getMedewerkerIterator"/>
+    <accessorIterator MasterBinding="getMedewerkerIterator" Binds="medewerker" RangeSize="25" DataControl="ClockWiseDC"
+                      BeanClass="nl.whitehorses.tornado.application.ClockWiseDC.getMedewerker.medewerkerResponse.medewerker"
+                      id="medewerkerIterator"/>
+    <accessorIterator MasterBinding="medewerkerIterator" Binds="ADRES" RangeSize="25" DataControl="ClockWiseDC"
+                      BeanClass="nl.whitehorses.tornado.application.ClockWiseDC.getMedewerker.medewerkerResponse.medewerker.ADRES"
+                      id="ADRESIterator"/>
+    <accessorIterator MasterBinding="ClockWiseDCIterator" Binds="getUrenschrijvenUurdata_parameters" RangeSize="25"
+                      DataControl="ClockWiseDC" BeanClass="ClockWiseDC.Types.getUrenschrijvenUurdata"
+                      id="getUrenschrijvenUurdata_parametersIterator"/>
+    <accessorIterator MasterBinding="getUrenschrijvenUurdata_parametersIterator" Binds="payload" RangeSize="25"
+                      DataControl="ClockWiseDC" BeanClass="ClockWiseDC.Types.getUrenschrijvenUurdata.payload"
+                      id="payloadIterator1"/>
+    <methodIterator Binds="getUrenschrijvenUurdata.result" DataControl="ClockWiseDC" RangeSize="25"
+                    BeanClass="nl.whitehorses.tornado.application.ClockWiseDC.getUrenschrijvenUurdata.uur"
+                    id="getUrenschrijvenUurdataIterator" Refresh="always" CacheResults="false"/>
+    <accessorIterator MasterBinding="ClockWiseDCIterator" Binds="getProjecten_parameters" RangeSize="25"
+                      DataControl="ClockWiseDC" BeanClass="ClockWiseDC.Types.getProjecten"
+                      id="getProjecten_parametersIterator"/>
+    <accessorIterator MasterBinding="getProjecten_parametersIterator" Binds="payload" RangeSize="25"
+                      DataControl="ClockWiseDC" BeanClass="ClockWiseDC.Types.getProjecten.payload"
+                      id="payloadIterator2"/>
+    <methodIterator Binds="getProjecten.result" DataControl="ClockWiseDC" RangeSize="25"
+                    BeanClass="nl.whitehorses.tornado.application.ClockWiseDC.getProjecten.Projecten"
+                    id="getProjectenIterator"/>
+    <accessorIterator MasterBinding="getProjectenIterator" Binds="Project" RangeSize="25" DataControl="ClockWiseDC"
+                      BeanClass="nl.whitehorses.tornado.application.ClockWiseDC.getProjecten.Projecten.Project"
+                      id="ProjectIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="payloadIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="getMedewerker" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getMedewerker"
+                  IsViewObjectMethod="false" DataControl="ClockWiseDC" InstanceName="data.ClockWiseDC"
+                  ReturnName="data.ClockWiseDC.methodResults.getMedewerker_ClockWiseDC_getMedewerker_result">
+      <NamedData NDName="payload" NDValue="#{viewScope.overviewBean.constructedGetMedewerkerRequestString}"
+                 NDType="java.lang.Object"/>
+    </methodAction>
+    <attributeValues IterBinding="medewerkerIterator" id="NAAM">
+      <AttrNames>
+        <Item Value="NAAM"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="medewerkerIterator" id="FUNCTIE">
+      <AttrNames>
+        <Item Value="FUNCTIE"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="payloadIterator1" id="MEDEWERKERID">
+      <AttrNames>
+        <Item Value="MEDEWERKERID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="payloadIterator1" id="DATUM">
+      <AttrNames>
+        <Item Value="DATUM"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="payloadIterator1" id="DAGEN">
+      <AttrNames>
+        <Item Value="DAGEN"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="getUrenschrijvenUurdata" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getUrenschrijvenUurdata" IsViewObjectMethod="false" DataControl="ClockWiseDC"
+                  InstanceName="data.ClockWiseDC"
+                  ReturnName="data.ClockWiseDC.methodResults.getUrenschrijvenUurdata_ClockWiseDC_getUrenschrijvenUurdata_result">
+      <NamedData NDName="payload" NDValue="#{viewScope.overviewBean.constructedGetUrenschrijvenUurDataRequestString}"
+                 NDType="java.lang.Object"/>
+    </methodAction>
+    <tree IterBinding="getUrenschrijvenUurdataIterator" id="uur">
+      <nodeDefinition DefName="nl.whitehorses.tornado.application.ClockWiseDC.getUrenschrijvenUurdata.uur" Name="uur0">
+        <AttrNames>
+          <Item Value="UREN"/>
+          <Item Value="projectNaam"/>
+          <Item Value="DATUM"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="payloadIterator2" id="MEDEWERKERID1">
+      <AttrNames>
+        <Item Value="MEDEWERKERID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="payloadIterator2" id="DATUM1">
+      <AttrNames>
+        <Item Value="DATUM"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="payloadIterator2" id="DAGEN1">
+      <AttrNames>
+        <Item Value="DAGEN"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="getProjecten" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getProjecten"
+                  IsViewObjectMethod="false" DataControl="ClockWiseDC" InstanceName="data.ClockWiseDC"
+                  ReturnName="data.ClockWiseDC.methodResults.getProjecten_ClockWiseDC_getProjecten_result">
+      <NamedData NDName="payload" NDValue="#{viewScope.overviewBean.constructedGetProjectenRequestString}"
+                 NDType="java.lang.Object"/>
+    </methodAction>
+    <list IterBinding="ProjectIterator" ListOperMode="navigation" ListIter="ProjectIterator" id="Project"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="NAAM"/>
+      </AttrNames>
+    </list>
+    <attributeValues IterBinding="payloadIterator1" id="RESOURCEID">
+      <AttrNames>
+        <Item Value="RESOURCEID"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

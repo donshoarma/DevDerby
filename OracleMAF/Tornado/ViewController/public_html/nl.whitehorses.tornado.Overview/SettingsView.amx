@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Instellingen" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="cb1" action="__back"/>
+    </amx:facet>
+    <amx:panelFormLayout id="pfl1" labelPosition="topStart">
+      <amx:selectOneRadio label="Weergave overzicht" id="sor1" value="#{preferenceScope.application.tornadoPrefs.daysPref}">
+        <amx:selectItem id="si1" label="Dagen" value="1"/>
+        <amx:selectItem id="si2" label="Weken" value="5"/>
+        <amx:selectItem id="si3" label="Maanden" value="31"/>
+      </amx:selectOneRadio>
+    </amx:panelFormLayout>
+  </amx:panelPage>
+</amx:view>

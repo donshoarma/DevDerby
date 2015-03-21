@@ -2,20 +2,27 @@
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
   <task-flow-definition id="OverviewTaskFlow">
     <default-activity>OverviewView</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name>tornadoApplicationBean</managed-bean-name>
+      <managed-bean-class>nl.whitehorses.tornado.beans.TornadoApplicationBean</managed-bean-class>
+      <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__4">
+      <managed-bean-name>overviewBean</managed-bean-name>
+      <managed-bean-class>nl.whitehorses.tornado.beans.OverviewBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
     <view id="OverviewView">
       <page>/nl.whitehorses.tornado.Overview/OverviewView.amx</page>
     </view>
-    <task-flow-call id="SettingsTaskFlow">
-      <task-flow-reference>
-        <document>/nl.whitehorses.tornado.Settings/SettingsTaskFlow.xml</document>
-        <id>SettingsTaskFlow</id>
-      </task-flow-reference>
-    </task-flow-call>
-    <control-flow-rule id="__1">
+    <view id="SettingsView">
+      <page>/nl.whitehorses.tornado.Overview/SettingsView.amx</page>
+    </view>
+    <control-flow-rule id="__7">
       <from-activity-id>OverviewView</from-activity-id>
-      <control-flow-case id="__2">
+      <control-flow-case id="__8">
         <from-outcome>toSettings</from-outcome>
-        <to-activity-id>SettingsTaskFlow</to-activity-id>
+        <to-activity-id>SettingsView</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

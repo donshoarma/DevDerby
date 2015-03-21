@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="AuthenticationTaskFlow">
+    <default-activity>AuthenticationView</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name>authenticationBean</managed-bean-name>
+      <managed-bean-class>nl.whitehorses.tornado.beans.AuthenticationBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__1">
+      <managed-bean-name>tornadoApplicationBean</managed-bean-name>
+      <managed-bean-class>nl.whitehorses.tornado.beans.TornadoApplicationBean</managed-bean-class>
+      <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <view id="AuthenticationView">
+      <page>/nl.whitehorses.tornado.Authentication/AuthenticationView.amx</page>
+    </view>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>

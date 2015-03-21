@@ -19,31 +19,29 @@
       <property
          name="x">225.0</property>
    </View>
-   <TaskFlowCall
-      id="TaskFlowCall3">
+   <View
+      id="View6">
       <property
-         name="taskFlowId">SettingsTaskFlow</property>
+         name="activityId">SettingsView</property>
       <property
-         name="activityId">SettingsTaskFlow</property>
+         name="page">/nl.whitehorses.tornado.Overview/SettingsView.amx</property>
       <property
-         name="documentReference">/nl.whitehorses.tornado.Settings/SettingsTaskFlow.xml</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>SettingsTaskFlow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>SettingsView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">130.44824</property>
+         name="y">273.79883</property>
       <property
-         name="x">444.3496</property>
-   </TaskFlowCall>
+         name="x">450.68457</property>
+   </View>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase4"
+      id="ControlFlowCase7"
       from="View2"
-      to="TaskFlowCall3">
+      to="View6">
       <property
          name="fromOutcome">toSettings</property>
       <property
-         name="sdm:polyPoints">R50,266.0,131.59766,403.3496,130.09766,L50</property>
+         name="sdm:polyPoints">R50,266.0,131.59766,409.68457,273.44824,L50</property>
    </ControlFlowCase>
 </SDM>

@@ -25,17 +25,29 @@
                        xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
     </Source>
   </AdapterDataControl>
-  <AdapterDataControl id="SettingsDC" FactoryClass="oracle.adf.model.adapter.bean.BeanDCFactoryImpl"
-                      ImplDef="oracle.adf.model.adapter.bean.BeanDCDefinition" SupportsTransactions="false"
-                      SupportsSortCollection="true" SupportsResetState="false" SupportsRangesize="false"
+  <AdapterDataControl id="ClockWiseDC" FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adfinternal.model.adapter.webservice.WSDefinition" SupportsTransactions="false"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
                       SupportsFindMode="false" SupportsUpdates="true"
-                      Definition="nl.whitehorses.tornado.dataControls.SettingsDC"
-                      BeanClass="nl.whitehorses.tornado.dataControls.SettingsDC"
+                      Definition="nl.whitehorses.tornado.application.ClockWiseDC"
+                      BeanClass="nl.whitehorses.tornado.application.ClockWiseDC"
                       xmlns="http://xmlns.oracle.com/adfm/datacontrol">
     <Source>
-      <bean-definition BeanClass="nl.whitehorses.tornado.dataControls.SettingsDC"
-                       DataControlHandler="oracle.adf.model.adapter.bean.DataFilterHandler" AccessMode="scrollable"
-                       EagerPersist="false" xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+      <definition xmlns="http://xmlns.oracle.com/adfm/adapter/webservice" name="ClockWiseDC" version="1.0"
+                  provider="oracle.adfinternal.model.adapter.webservice.provider.soap.SOAPProvider"
+                  wsdl="http://192.168.11.134:7001/soa-infra/services/default/ClockWiseBpel/login_client_ep?WSDL"
+                  ensureKeyAttribute="true" useWSDLIdentity="true" dcStructureVersion="2" UsePersistedStructure="false">
+        <service name="login_client_ep" namespace="http://xmlns.oracle.com/SOA/ClockWiseBpel/Login"
+                 connection="ClockWiseDC">
+          <port name="Login_pt">
+            <operation name="process"/>
+            <operation name="getUrenschrijvenProjectdata"/>
+            <operation name="getMedewerker"/>
+            <operation name="getUrenschrijvenUurdata"/>
+            <operation name="getProjecten"/>
+          </port>
+        </service>
+      </definition>
     </Source>
   </AdapterDataControl>
 </DataControlConfigs>

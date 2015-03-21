@@ -2,13 +2,23 @@
 <adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
                    version="1.0" name="Tornado" id="nl.whitehorses.Tornado" appControllerFolder="ApplicationController"
                    listener-class="nl.whitehorses.tornado.application.LifeCycleListenerImpl">
+  <adfmf:featureReference refId="nl.whitehorses.tornado.Authentication" id="fr1" showOnNavigationBar="false"
+                          showOnSpringboard="false"/>
   <adfmf:featureReference refId="nl.whitehorses.tornado.Overview" id="fr2" showOnSpringboard="false"
-                          showOnNavigationBar="false" loginConnRefId="Whitehorses Clockwise"/>
-  <adfmf:preferences/>
+                          showOnNavigationBar="true"/>
+  <adfmf:featureReference refId="nl.whitehorses.tornado.SubmitHours" id="fr3" showOnNavigationBar="true"
+                          showOnSpringboard="false"/>
+  <adfmf:preferences>
+    <adfmf:preferenceGroup id="tornadoPrefs" label="Tornado instellingen">
+      <adfmf:preferenceList id="daysPref" label="Weergave overzicht" default="1">
+        <adfmf:preferenceValue name="Dagen" value="1" id="pv1"/>
+        <adfmf:preferenceValue name="Weken" value="5" id="pv2"/>
+        <adfmf:preferenceValue name="Maanden" value="31" id="pv3"/>
+      </adfmf:preferenceList>
+    </adfmf:preferenceGroup>
+  </adfmf:preferences>
   <adfmf:navigation>
-    <adfmf:navigationBar enabled="false"/>
+    <adfmf:navigationBar enabled="false" displayHideShowNavigationBarControl="true"/>
   </adfmf:navigation>
-  <adfmf:login defaultConnRefId="Whitehorses Clockwise">
-    <adfmf:localHTML url="../../ViewController/public_html/login.html"/>
-  </adfmf:login>
+  <adfmf:login/>
 </adfmf:application>

@@ -13,8 +13,6 @@ import java.sql.SQLException;
 
 import java.sql.Statement;
 
-import nl.whitehorses.tornado.util.ApplicationSettings;
-
 import oracle.adfmf.application.LifeCycleListener;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 
@@ -73,59 +71,6 @@ public class LifeCycleListenerImpl implements LifeCycleListener {
      *    so do not attempt to call any secure web services in this method.
      */
     public void start() {
-        //Initialize SQLite cache database
-        InputStream scriptStream = null;
-        Connection connection = null;
-
-        try {
-            String applicationDirectory =
-                AdfmfJavaUtilities.getDirectoryPathRoot(AdfmfJavaUtilities.ApplicationDirectory);
-            String databaseFileLocation = applicationDirectory + "/" + ApplicationSettings.SQLITE_SETTINGS_DB_FILENAME;
-
-            //Check if database already exists
-            File dbFile = new File(databaseFileLocation);
-            if (dbFile.exists()) {
-                //Database already exits, exit method
-                return;
-            } else {
-                //Database doesn't exist jet, establish new database connection
-                connection = new SQLite.JDBCDataSource("jdbc:sqlite:" + databaseFileLocation).getConnection();
-                connection.setAutoCommit(false);
-
-                //Read database script
-                scriptStream =
-                    Thread.currentThread().getContextClassLoader().getResourceAsStream("META-INF/cacheDB.sql");
-                BufferedReader scriptReader = new BufferedReader(new InputStreamReader(scriptStream));
-                Statement statement = connection.createStatement();
-                String nextLine;
-                StringBuffer nextStatement = new StringBuffer();
-
-                while ((nextLine = scriptReader.readLine()) != null) {
-                    nextStatement.append(nextLine);
-
-                    if (nextLine.endsWith(";")) {
-                        statement.execute(nextStatement.toString());
-                        nextStatement = new StringBuffer();
-                    }
-                }
-            }
-        } catch (SQLException ex) {
-            //SQL exception occurred
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            //IO Exception occured
-            ex.printStackTrace();
-        } finally {
-            //Commit changes and close connection
-            if (connection != null) {
-                try {
-                    connection.commit();
-                    connection.close();
-                } catch (SQLException ex) {
-                }
-            }
-        }
-
     }
 
     /**

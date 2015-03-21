@@ -2,14 +2,22 @@
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.13.52" id="DataBindings"
              SeparateXMLFiles="false" Package="nl.whitehorses.tornado.mobile" ClientType="Generic">
   <pageMap>
-    <page path="/nl.whitehorses.tornado.Settings/SettingsView.amx"
+    <page path="/nl.whitehorses.tornado.Overview/SettingsView.amx"
           usageId="nl_whitehorses_tornado_mobile_SettingsViewPageDef"/>
+    <page path="/nl.whitehorses.tornado.Overview/OverviewView.amx"
+          usageId="nl_whitehorses_tornado_mobile_OverviewViewPageDef"/>
+    <page path="/nl.whitehorses.tornado.Authentication/AuthenticationView.amx"
+          usageId="nl_whitehorses_tornado_mobile_AuthenticationViewPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="nl_whitehorses_tornado_mobile_SettingsViewPageDef"
           path="nl.whitehorses.tornado.Settings.SettingsViewPageDef"/>
+    <page id="nl_whitehorses_tornado_mobile_OverviewViewPageDef"
+          path="nl.whitehorses.tornado.Overview.OverviewViewPageDef"/>
+    <page id="nl_whitehorses_tornado_mobile_AuthenticationViewPageDef"
+          path="nl.whitehorses.tornado.Authentication.AuthenticationViewPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
-    <dc id="SettingsDC" path="nl.whitehorses.tornado.application.SettingsDC"/>
+    <dc id="ClockWiseDC" path="nl.whitehorses.tornado.application.ClockWiseDC"/>
   </dataControlUsages>
 </Application>

@@ -1,27 +1,47 @@
 <References xmlns="http://xmlns.oracle.com/adf/jndi">
-  <Reference name="Whitehorses Clockwise" className="oracle.adf.model.connection.adfmf.LoginConnection"
-             adfCredentialStoreKey="Whitehorses Clockwise" partial="false" manageInOracleEnterpriseManager="true"
-             deployable="true" xmlns="">
-    <Factory className="oracle.adf.model.connection.adfmf.LoginConnectionFactory"/>
+  <Reference name="ClockWiseDC" className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl"
+             xmlns="">
+    <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
     <RefAddresses>
-      <XmlRefAddr addrType="adfmfLogin">
+      <XmlRefAddr addrType="WebServiceConnection">
         <Contents>
-          <login url="https://secure.clockwise.info/clockwise/whitehorses_dev/rapportages/querywizzard.php?versturen=versturen&amp;f%5Bstatus%5D=L&amp;f%5Borganisatieid%5D=0&amp;f%5Btijdseenheid%5D=uur&amp;cwtblexport=1&amp;cwtblexport_type=json&amp;cwtblexport_name=table.json"/>
-          <logout url="https://secure.clockwise.info/clockwise/whitehorses_dev/rapportages/querywizzard.php?versturen=versturen&amp;f%5Bstatus%5D=L&amp;f%5Borganisatieid%5D=0&amp;f%5Btijdseenheid%5D=uur&amp;cwtblexport=1&amp;cwtblexport_type=json&amp;cwtblexport_name=table.json"/>
-          <authenticationMode value="remote"/>
-          <idleTimeout value="300"/>
-          <sessionTimeout value="28800"/>
-          <maxFailuresBeforeCredentialCleared value="3"/>
-          <rememberCredentials>
-            <enableRememberUserName value="true"/>
-            <rememberUserNameDefault value="true"/>
-            <enableRememberPassword value="false"/>
-            <enableStayLoggedIn value="false"/>
-          </rememberCredentials>
-          <injectCookiesToRestHttpHeader value="true"/>
-          <includeBasicAuthHeader value="true"/>
-          <accessControl/>
-          <userObjectFilter/>
+          <wsconnection description="http://192.168.11.134:7001/soa-infra/services/default/ClockWiseBpel/login_client_ep?WSDL"
+                        service="{http://xmlns.oracle.com/SOA/ClockWiseBpel/Login}login_client_ep">
+            <model name="{http://xmlns.oracle.com/SOA/ClockWiseBpel/Login}login_client_ep"
+                   xmlns="http://oracle.com/ws/model">
+              <service name="{http://xmlns.oracle.com/SOA/ClockWiseBpel/Login}login_client_ep">
+                <port name="Login_pt" binding="{http://xmlns.oracle.com/SOA/ClockWiseBpel/Login}LoginBinding">
+                  <soap addressUrl="http://192.168.11.134:7001/soa-infra/services/default/ClockWiseBpel/login_client_ep"
+                        xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                  <operation name="process">
+                    <soap soapAction="process" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getMedewerker">
+                    <soap soapAction="getMedewerker" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getUrenschrijvenProjectdata">
+                    <soap soapAction="getUrenschrijvenProjectdata" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getUrenschrijvenUurdata">
+                    <soap soapAction="getUrenschrijvenUurdata" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getProjecten">
+                    <soap soapAction="getProjecten" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                </port>
+              </service>
+            </model>
+          </wsconnection>
         </Contents>
       </XmlRefAddr>
     </RefAddresses>

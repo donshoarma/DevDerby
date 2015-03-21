@@ -4,18 +4,6 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="root" RangeSize="25" DataControl="SettingsDC" id="SettingsDCIterator"/>
   </executables>
-  <bindings>
-    <methodAction id="storeOverviewTypeInDb" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="storeOverviewTypeInDb" IsViewObjectMethod="false" DataControl="SettingsDC"
-                  InstanceName="data.SettingsDC.dataProvider">
-      <NamedData NDName="overviewType" NDType="java.lang.String"/>
-    </methodAction>
-    <attributeValues IterBinding="SettingsDCIterator" id="overviewTypeFromDb">
-      <AttrNames>
-        <Item Value="overviewTypeFromDb"/>
-      </AttrNames>
-    </attributeValues>
-  </bindings>
+  <bindings/>
 </pageDefinition>

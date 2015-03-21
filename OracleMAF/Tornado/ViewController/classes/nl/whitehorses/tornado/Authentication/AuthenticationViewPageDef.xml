@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.13.52" id="AuthenticationViewPageDef"
+                Package="nl.whitehorses.tornado.Authentication">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="process_Return" IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.process.result}"/>
+      <variable Type="java.lang.String" Name="process_username" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="process_password" IsQueriable="false"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <methodAction id="process" RequiresUpdateModel="true" Action="invokeMethod" MethodName="process"
+                  IsViewObjectMethod="false" DataControl="ClockWiseDC" InstanceName="data.ClockWiseDC"
+                  ReturnName="data.ClockWiseDC.methodResults.process_ClockWiseDC_process_result">
+      <NamedData NDName="username" NDType="java.lang.String" NDValue="${bindings.process_username}"/>
+      <NamedData NDName="password" NDType="java.lang.String" NDValue="${bindings.process_password}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="username">
+      <AttrNames>
+        <Item Value="process_username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="password">
+      <AttrNames>
+        <Item Value="process_password"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="Return">
+      <AttrNames>
+        <Item Value="process_Return"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

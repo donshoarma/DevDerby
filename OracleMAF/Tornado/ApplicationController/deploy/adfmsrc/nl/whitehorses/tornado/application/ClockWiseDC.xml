@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.1.3.13.52" id="ClockWiseDC"
+          Package="nl.whitehorses.tornado.application" BeanClass="nl.whitehorses.tornado.application.ClockWiseDC"
+          isJavaBased="false">
+  <AccessorAttribute id="getMedewerker_parameters" IsCollection="false" BeanClass="ClockWiseDC.Types.getMedewerker"/>
+  <AccessorAttribute id="getUrenschrijvenUurdata_parameters" IsCollection="false"
+                     BeanClass="ClockWiseDC.Types.getUrenschrijvenUurdata"/>
+  <AccessorAttribute id="getProjecten_parameters" IsCollection="false" BeanClass="ClockWiseDC.Types.getProjecten"/>
+  <MethodAccessor IsCollection="false" Type="java.lang.String" id="process" ReturnNodeName="Return">
+    <ParameterInfo id="username" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="password" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false"
+                  Type="nl.whitehorses.tornado.application.ClockWiseDC.getUrenschrijvenProjectdata.Projectdata"
+                  BeanClass="nl.whitehorses.tornado.application.ClockWiseDC.getUrenschrijvenProjectdata.Projectdata"
+                  id="getUrenschrijvenProjectdata" ReturnNodeName="Projectdata">
+    <ParameterInfo id="MEDEWERKERID" Type="java.lang.Integer" isStructured="false"/>
+    <ParameterInfo id="DATUM" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="DAGEN" Type="java.lang.Integer" isStructured="false"/>
+    <ParameterInfo id="ALLEENGESCHREVEN" Type="java.lang.Integer" isStructured="false"/>
+    <ParameterInfo id="GEENVELDINFO" Type="java.lang.Integer" isStructured="false"/>
+    <ParameterInfo id="GEENUURDATA" Type="java.lang.Integer" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false"
+                  Type="nl.whitehorses.tornado.application.ClockWiseDC.getMedewerker.medewerkerResponse"
+                  BeanClass="nl.whitehorses.tornado.application.ClockWiseDC.getMedewerker.medewerkerResponse"
+                  id="getMedewerker" ReturnNodeName="medewerkerResponse">
+    <ParameterInfo id="payload" Type="java.lang.Object" isStructured="false">
+      <Properties>
+        <Property Name="__SET_INITIAL_VALUE" Value="true"/>
+        <Property Name="__alternate_param_type__" Value="java.util.Map"/>
+      </Properties>
+    </ParameterInfo>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true" Type="nl.whitehorses.tornado.application.ClockWiseDC.getUrenschrijvenUurdata.uur"
+                  BeanClass="nl.whitehorses.tornado.application.ClockWiseDC.getUrenschrijvenUurdata.uur"
+                  id="getUrenschrijvenUurdata" ReturnNodeName="uur"
+                  CollectionBeanClass="nl.whitehorses.tornado.application.ClockWiseDC.getUrenschrijvenUurdata.uur_Operations">
+    <ParameterInfo id="payload" Type="java.lang.Object" isStructured="false">
+      <Properties>
+        <Property Name="__SET_INITIAL_VALUE" Value="true"/>
+        <Property Name="__alternate_param_type__" Value="java.util.Map"/>
+      </Properties>
+    </ParameterInfo>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="nl.whitehorses.tornado.application.ClockWiseDC.getProjecten.Projecten"
+                  BeanClass="nl.whitehorses.tornado.application.ClockWiseDC.getProjecten.Projecten" id="getProjecten"
+                  ReturnNodeName="Projecten">
+    <ParameterInfo id="payload" Type="java.lang.Object" isStructured="false">
+      <Properties>
+        <Property Name="__SET_INITIAL_VALUE" Value="true"/>
+        <Property Name="__alternate_param_type__" Value="java.util.Map"/>
+      </Properties>
+    </ParameterInfo>
+  </MethodAccessor>
+</JavaBean>

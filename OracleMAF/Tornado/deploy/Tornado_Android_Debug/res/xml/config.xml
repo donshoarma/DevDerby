@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!-- Copyright (c) 2011, 2014, Oracle and/or its affiliates. All rights reserved. -->
 <widget id="io.cordova.helloCordova" version="2.0.0" xmlns="http://www.w3.org/ns/widgets">
     <access origin="http://127.0.0.1*" />
     <access origin="*://*.googleapis.com/*" />
@@ -19,8 +20,5 @@
     </feature>
     <feature name="ADFMobileFeatures">
         <param name="android-package" value="oracle.adfmf.phonegap.ADFMobileFeatures" />
-    </feature>
-    <feature name="NetworkStatus">
-        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
     </feature>
 </widget>

@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-  <amx:panelPage id="pp1">
-    <amx:facet name="header">
-      <amx:outputText value="Overzicht" id="ot1"/>
-    </amx:facet>
-    <amx:facet name="secondary">
-      <amx:commandButton id="cb1" action="toSettings" icon="/images/icons/settings_32_32.png"/>
-    </amx:facet>
-    <amx:outputText value="#{securityContext.userName}" id="ot2"/>
-  </amx:panelPage>
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Overzicht" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton id="cb1" action="toSettings" icon="/images/icons/settings_32_32.png"/>
+        </amx:facet>
+        <amx:panelLabelAndMessage label="#{bindings.NAAM.hints.label}" id="plam30">
+            <amx:outputText value="#{bindings.NAAM.inputValue}" id="ot32"/>
+        </amx:panelLabelAndMessage>
+        <amx:panelLabelAndMessage label="#{bindings.FUNCTIE.hints.label}" id="plam56">
+            <amx:outputText value="#{bindings.FUNCTIE.inputValue}" id="ot58"/>
+        </amx:panelLabelAndMessage>
+        <amx:selectOneChoice value="#{bindings.Project.inputValue}" label="#{bindings.Project.label}" id="soc1">
+            <amx:selectItems value="#{bindings.Project.items}" id="si1"/>
+        </amx:selectOneChoice>
+        <amx:listView var="row" value="#{bindings.uur.collectionModel}" fetchSize="#{bindings.uur.rangeSize}"
+                      selectedRowKeys="#{bindings.uur.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.uur.collectionModel.makeCurrent}" showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1"
+                      dividerMode="all" dividerAttribute="DATUM">
+            <amx:listItem id="li1">
+                <amx:outputText value="Uren geschreven voor #{row.projectNaam}:" id="ot2"/>
+                <amx:inputText value="#{row.UREN}" id="it1" inputType="number"/>
+            </amx:listItem>
+        </amx:listView>
+        <amx:commandButton text="Opslaan" id="cb2"/>
+    </amx:panelPage>
 </amx:view>
